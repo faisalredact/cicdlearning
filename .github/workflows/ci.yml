@@ -1,17 +1,15 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Cypress Tests
 
-# Controls when the workflow will run
 on: push
-  # Triggers the workflow on push or pull request events but only for the "main" branch
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  
   cypress-run:
     name: Run cypress
     runs-on: ubuntu-22.04
+    container:
+      image: cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
+      options: --user 1001
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
